@@ -1,0 +1,1 @@
+# TRN_reposicionamento_parceiros
