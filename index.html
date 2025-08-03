@@ -1,0 +1,2432 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treinamento - Reposicionamento Estratégico FNW</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cal+Sans:wght@400;600;700&family=Noto+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Design System Variables */
+        :root {
+            /* Colors - Modern Palette */
+            --primary-50: #eff6ff;
+            --primary-100: #dbeafe;
+            --primary-200: #bfdbfe;
+            --primary-300: #93c5fd;
+            --primary-400: #60a5fa;
+            --primary-500: #3b82f6;
+            --primary-600: #2563eb;
+            --primary-700: #1d4ed8;
+            --primary-800: #1e40af;
+            --primary-900: #1e3a8a;
+
+            --success-50: #f0fdf4;
+            --success-100: #dcfce7;
+            --success-200: #bbf7d0;
+            --success-300: #86efac;
+            --success-400: #4ade80;
+            --success-500: #22c55e;
+            --success-600: #16a34a;
+            --success-700: #15803d;
+            --success-800: #166534;
+            --success-900: #14532d;
+
+            --warning-50: #fffbeb;
+            --warning-100: #fef3c7;
+            --warning-200: #fde68a;
+            --warning-300: #fcd34d;
+            --warning-400: #fbbf24;
+            --warning-500: #f59e0b;
+            --warning-600: #d97706;
+            --warning-700: #b45309;
+            --warning-800: #92400e;
+            --warning-900: #78350f;
+
+            --danger-50: #fef2f2;
+            --danger-100: #fee2e2;
+            --danger-200: #fecaca;
+            --danger-300: #fca5a5;
+            --danger-400: #f87171;
+            --danger-500: #ef4444;
+            --danger-600: #dc2626;
+            --danger-700: #b91c1c;
+            --danger-800: #991b1b;
+            --danger-900: #7f1d1d;
+
+            --neutral-50: #f8fafc;
+            --neutral-100: #f1f5f9;
+            --neutral-200: #e2e8f0;
+            --neutral-300: #cbd5e1;
+            --neutral-400: #94a3b8;
+            --neutral-500: #64748b;
+            --neutral-600: #475569;
+            --neutral-700: #334155;
+            --neutral-800: #1e293b;
+            --neutral-900: #0f172a;
+
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--primary-600), var(--primary-700));
+            --gradient-success: linear-gradient(135deg, var(--success-500), var(--success-600));
+            --gradient-warning: linear-gradient(135deg, var(--warning-500), var(--warning-600));
+            --gradient-danger: linear-gradient(135deg, var(--danger-600), var(--danger-700));
+            --gradient-purple: linear-gradient(135deg, #7c3aed, #5b21b6);
+            --gradient-ocean: linear-gradient(135deg, #0ea5e9, #0284c7);
+            --gradient-sunset: linear-gradient(135deg, #f97316, #ea580c);
+
+            /* Glass Effects */
+            --glass-bg: rgba(255, 255, 255, 0.25);
+            --glass-border: rgba(255, 255, 255, 0.18);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            --glass-backdrop: blur(8px);
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.3);
+
+            /* Typography */
+            --font-primary: 'Cal Sans', sans-serif;
+            --font-secondary: 'Noto Sans', sans-serif;
+
+            --text-xs: 0.75rem;
+            --text-sm: 0.875rem;
+            --text-base: 1rem;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-2xl: 1.5rem;
+            --text-3xl: 1.875rem;
+            --text-4xl: 2.25rem;
+            --text-5xl: 3rem;
+            --text-6xl: 3.75rem;
+
+            /* Spacing */
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-5: 1.25rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-10: 2.5rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            --space-20: 5rem;
+            --space-24: 6rem;
+
+            /* Border Radius */
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+            --radius-full: 9999px;
+
+            /* Transitions */
+            --transition-fast: 150ms ease-in-out;
+            --transition-normal: 300ms ease-in-out;
+            --transition-slow: 500ms ease-in-out;
+
+            /* Z-index */
+            --z-dropdown: 1000;
+            --z-sticky: 1020;
+            --z-fixed: 1030;
+            --z-modal: 1040;
+            --z-popover: 1050;
+            --z-tooltip: 1060;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-secondary);
+            line-height: 1.6;
+            color: var(--neutral-800);
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            font-size: var(--text-base);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .navbar {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-backdrop);
+            -webkit-backdrop-filter: var(--glass-backdrop);
+            border-bottom: 1px solid var(--glass-border);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: var(--z-fixed);
+            height: 80px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-8);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .nav-logo h2 {
+            font-family: var(--font-primary);
+            font-weight: 700;
+            color: var(--primary-600);
+            font-size: var(--text-xl);
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-progress {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+
+        /* Circular Progress Ring */
+        .progress-ring-container {
+            position: relative;
+            width: 60px;
+            height: 60px;
+        }
+
+        .progress-ring {
+            width: 60px;
+            height: 60px;
+            transform: rotate(-90deg);
+        }
+
+        .progress-ring-bg {
+            fill: none;
+            stroke: var(--neutral-200);
+            stroke-width: 4;
+        }
+
+        .progress-ring-fill {
+            fill: none;
+            stroke: url(#progressGradient);
+            stroke-width: 4;
+            stroke-linecap: round;
+            stroke-dasharray: 157.08; /* 2 * π * 25 */
+            stroke-dashoffset: 157.08;
+            transition: stroke-dashoffset var(--transition-slow);
+            filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.3));
+        }
+
+        .progress-ring-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: var(--text-xs);
+            font-weight: 700;
+            color: var(--primary-600);
+            text-align: center;
+            line-height: 1;
+        }
+
+        .progress-ring-text .current {
+            font-size: var(--text-sm);
+            display: block;
+        }
+
+        .progress-ring-text .total {
+            font-size: var(--text-xs);
+            opacity: 0.7;
+        }
+
+        /* Achievement Badges */
+        .achievement-badges {
+            display: flex;
+            gap: var(--space-2);
+            align-items: center;
+        }
+
+        .achievement-badge {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-sm);
+            font-weight: 700;
+            transition: all var(--transition-normal);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .achievement-badge.locked {
+            background: var(--neutral-200);
+            color: var(--neutral-400);
+            border: 2px solid var(--neutral-300);
+        }
+
+        .achievement-badge.completed {
+            background: var(--gradient-success);
+            color: white;
+            border: 2px solid var(--success-400);
+            box-shadow: 0 0 12px rgba(34, 197, 94, 0.4);
+            animation: badgeGlow 2s ease-in-out infinite alternate;
+        }
+
+        .achievement-badge.current {
+            background: var(--gradient-primary);
+            color: white;
+            border: 2px solid var(--primary-400);
+            box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+            animation: badgePulse 1.5s ease-in-out infinite;
+        }
+
+        .achievement-badge:hover {
+            transform: scale(1.1);
+        }
+
+        .achievement-badge::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--neutral-900);
+            color: white;
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-sm);
+            font-size: var(--text-xs);
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--transition-fast);
+            z-index: var(--z-tooltip);
+        }
+
+        .achievement-badge:hover::after {
+            opacity: 1;
+        }
+
+        /* Legacy progress bar for fallback */
+        .progress-bar {
+            width: 220px;
+            height: 12px;
+            background: var(--neutral-200);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: none; /* Hidden by default, shown on mobile */
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-full);
+            transition: width var(--transition-slow);
+            width: 14.28%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        @keyframes badgeGlow {
+            0% {
+                box-shadow: 0 0 12px rgba(34, 197, 94, 0.4);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(34, 197, 94, 0.8);
+            }
+        }
+
+        @keyframes badgePulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
+            }
+        }
+
+        /* Celebration Animations */
+        @keyframes confetti {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes celebrationBounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .celebration-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: var(--z-modal);
+        }
+
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--primary-500);
+            animation: confetti 3s ease-out forwards;
+        }
+
+        .confetti-piece:nth-child(2n) {
+            background: var(--success-500);
+            animation-delay: 0.1s;
+        }
+
+        .confetti-piece:nth-child(3n) {
+            background: var(--warning-500);
+            animation-delay: 0.2s;
+        }
+
+        .confetti-piece:nth-child(4n) {
+            background: var(--danger-500);
+            animation-delay: 0.3s;
+        }
+
+        .progress-text {
+            font-weight: 600;
+            color: var(--neutral-600);
+            font-size: var(--text-sm);
+            background: var(--neutral-50);
+            padding: var(--space-2) var(--space-3);
+            border-radius: var(--radius-full);
+            border: 1px solid var(--neutral-200);
+        }
+
+        .main-container {
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-12) var(--space-8);
+            flex: 1;
+        }
+
+        .module {
+            display: none;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all var(--transition-slow);
+        }
+
+        .module.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .module-header {
+            text-align: center;
+            margin-bottom: var(--space-12);
+            position: relative;
+        }
+
+        .module-number {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            padding: var(--space-3) var(--space-6);
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-4);
+            box-shadow: var(--shadow-glow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-number::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        .module-header h1 {
+            font-family: var(--font-primary);
+            font-size: var(--text-5xl);
+            font-weight: 700;
+            color: var(--neutral-900);
+            margin-bottom: var(--space-2);
+            background: linear-gradient(135deg, var(--neutral-900), var(--neutral-700));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .module-subtitle {
+            font-size: var(--text-xl);
+            color: var(--neutral-600);
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+
+        .content-card {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-backdrop);
+            -webkit-backdrop-filter: var(--glass-backdrop);
+            padding: var(--space-8);
+            border-radius: var(--radius-2xl);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform var(--transition-normal);
+        }
+
+        .content-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .content-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .content-card.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .content-card h3 {
+            font-family: var(--font-primary);
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            margin-bottom: var(--space-4);
+            color: var(--neutral-900);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        .content-card h3::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-full);
+            opacity: 0;
+            transform: scaleY(0);
+            transition: all var(--transition-normal);
+        }
+
+        .content-card:hover h3::before {
+            opacity: 1;
+            transform: scaleY(1);
+        }
+
+        .content-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .content-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .content-card li::before {
+            content: "•";
+            color: #2563eb;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .highlight-box {
+            background: var(--primary-50);
+            border: 1px solid var(--primary-200);
+            border-radius: var(--radius-lg);
+            padding: var(--space-4);
+            margin-top: var(--space-4);
+            color: var(--primary-800);
+            backdrop-filter: blur(4px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+        }
+
+        .stat-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: var(--danger-50);
+            border: 1px solid var(--danger-200);
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            margin-top: var(--space-4);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(4px);
+        }
+
+        .stat-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-danger);
+        }
+
+        .stat-number {
+            font-size: var(--text-5xl);
+            font-weight: 700;
+            color: var(--danger-600);
+            font-family: var(--font-primary);
+            background: var(--gradient-danger);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: var(--text-sm);
+            color: var(--danger-800);
+            font-weight: 500;
+        }
+
+        .methodology-box {
+            grid-column: 1 / -1;
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .methodology-box h3 {
+            font-family: 'Cal Sans', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: #1f2937;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .step-number {
+            background: #2563eb;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .alert-box {
+            background: #fef3cd;
+            border: 1px solid #f6e05e;
+            border-radius: 8px;
+            padding: 1rem;
+            color: #92400e;
+            text-align: center;
+        }
+
+        .priority-card {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            grid-column: 1 / -1;
+        }
+
+        .priority-card h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .reason-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .reason-box h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .scan-process {
+            grid-column: 1 / -1;
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .process-step {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .step-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .process-step h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .process-step ul {
+            list-style: none;
+            font-size: 0.9rem;
+        }
+
+        .process-step li {
+            padding: 0.3rem 0;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .process-step li::before {
+            content: "→";
+            color: #2563eb;
+            position: absolute;
+            left: 0;
+        }
+
+        .danger-indicators {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            padding: 2rem;
+            border-radius: 16px;
+        }
+
+        .danger-indicators h3 {
+            color: #dc2626;
+            margin-bottom: 1.5rem;
+        }
+
+        .danger-list {
+            display: grid;
+            gap: 0.8rem;
+        }
+
+        .danger-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #dc2626;
+            font-weight: 500;
+        }
+
+        .cta-box {
+            background: #065f46;
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .cta-box h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .cta-button {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            background: #059669;
+            transform: translateY(-2px);
+        }
+
+        .solution-promise {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .solution-promise h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .promise-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .promise-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 12px;
+        }
+
+        .promise-icon {
+            font-size: 1.5rem;
+        }
+
+        .investment-stages {
+            grid-column: 1 / -1;
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .stage {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+
+        .stage-number {
+            background: #2563eb;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .stage-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #1f2937;
+        }
+
+        .stage-cost {
+            display: inline-block;
+            background: #fee2e2;
+            color: #dc2626;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .stage-feature {
+            display: inline-block;
+            background: #dcfce7;
+            color: #166534;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .urgency-box {
+            background: #991b1b;
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .urgency-box h3 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .urgency-conditions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .condition {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .condition-or {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .urgency-note {
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .roles-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            grid-column: 1 / -1;
+        }
+
+        .role-card {
+            padding: 2rem;
+            border-radius: 16px;
+            border: 2px solid;
+        }
+
+        .fnw-role {
+            background: #eff6ff;
+            border-color: #2563eb;
+        }
+
+        .fnw-role h3 {
+            color: #2563eb;
+        }
+
+        .partner-role {
+            background: #f0fdf4;
+            border-color: #16a34a;
+        }
+
+        .partner-role h3 {
+            color: #16a34a;
+        }
+
+        .setup-requirements {
+            grid-column: 1 / -1;
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .requirements-list {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .requirement {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .req-icon {
+            font-size: 1.5rem;
+            width: 40px;
+            text-align: center;
+        }
+
+        .final-goal {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #7c3aed, #5b21b6);
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .final-goal h3 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .automation-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .flow-step {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        .flow-arrow {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .page-indicator {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .page-dots {
+            display: flex;
+            gap: 0.8rem;
+            align-items: center;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #d1d5db;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .dot:hover {
+            background: #9ca3af;
+            transform: scale(1.2);
+        }
+
+        .dot.active {
+            background: #2563eb;
+            transform: scale(1.3);
+        }
+
+        .dot.active::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border: 2px solid #2563eb;
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+
+        .nav-btn {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .nav-btn:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .final-cta-section {
+            grid-column: 1 / -1;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .cta-hero {
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+        }
+
+        .cta-hero h2 {
+            font-family: 'Cal Sans', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .cta-description {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .scan-benefits {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+            margin-bottom: 2rem;
+        }
+
+        .scan-benefits h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: #16a34a;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem;
+            background: #f0fdf4;
+            border-radius: 12px;
+            border: 1px solid #bbf7d0;
+        }
+
+        .benefit-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-item p {
+            font-weight: 500;
+            color: #166534;
+            margin: 0;
+        }
+
+        .urgency-reminder {
+            background: #fef3cd;
+            border: 2px solid #f59e0b;
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+        }
+
+        .urgency-reminder h3 {
+            color: #92400e;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-action {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+        }
+
+        .cta-action h3 {
+            color: white;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-action p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .main-cta-button {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            text-decoration: none;
+            padding: 1.5rem 3rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            margin-bottom: 1rem;
+        }
+
+        .main-cta-button:hover {
+            background: #059669;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+        }
+
+        .cta-guarantee {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        /* Mobile First Responsive Design */
+
+        /* Small devices (landscape phones, 576px and up) */
+        @media (min-width: 576px) {
+            .content-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
+        /* Medium devices (tablets, 768px and up) */
+        @media (min-width: 768px) {
+            .content-grid {
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            }
+
+            .module-header h1 {
+                font-size: var(--text-4xl);
+            }
+        }
+
+        /* Large devices (desktops, 992px and up) */
+        @media (min-width: 992px) {
+            .module-header h1 {
+                font-size: var(--text-5xl);
+            }
+        }
+
+        /* Mobile specific styles (max-width: 768px) */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 var(--space-4);
+            }
+
+            .nav-logo h2 {
+                font-size: var(--text-lg);
+            }
+
+            /* Mobile: Show legacy progress bar, hide badges */
+            .progress-ring-container {
+                display: none;
+            }
+            
+            .achievement-badges {
+                display: none;
+            }
+            
+            .progress-bar {
+                display: block !important;
+                width: 140px;
+                height: 8px;
+            }
+
+            .progress-text {
+                font-size: var(--text-xs);
+                padding: var(--space-1) var(--space-2);
+            }
+
+            .content-wrapper {
+                padding: var(--space-8) var(--space-4);
+            }
+
+            .module-header {
+                margin-bottom: var(--space-8);
+            }
+
+            .module-header h1 {
+                font-size: var(--text-3xl);
+            }
+
+            .module-subtitle {
+                font-size: var(--text-base);
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-6);
+            }
+
+            .content-card {
+                padding: var(--space-6);
+            }
+
+            .roles-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-4);
+            }
+
+            .urgency-conditions {
+                flex-direction: column;
+                gap: var(--space-2);
+            }
+
+            .automation-flow {
+                flex-direction: column;
+                gap: var(--space-2);
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+                font-size: var(--text-lg);
+            }
+
+            .navigation {
+                padding: var(--space-4);
+                flex-direction: column;
+                gap: var(--space-4);
+            }
+
+            .page-indicator {
+                position: static;
+                transform: none;
+                order: -1;
+            }
+
+            .nav-btn {
+                padding: var(--space-3) var(--space-6);
+                font-size: var(--text-sm);
+                min-width: 120px;
+            }
+
+            .page-dots {
+                gap: var(--space-2);
+            }
+
+            .dot {
+                width: 8px;
+                height: 8px;
+            }
+
+            .cta-hero {
+                padding: var(--space-8) var(--space-4);
+            }
+
+            .cta-hero h2 {
+                font-size: var(--text-2xl);
+            }
+
+            .cta-description {
+                font-size: var(--text-base);
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .main-cta-button {
+                padding: var(--space-4) var(--space-6);
+                font-size: var(--text-lg);
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .promise-items {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Extra small devices (portrait phones, less than 576px) */
+        @media (max-width: 575px) {
+            .navbar {
+                height: 70px;
+            }
+
+            .main-container {
+                margin-top: 70px;
+            }
+
+            .nav-container {
+                padding: 0 var(--space-3);
+            }
+
+            .progress-bar {
+                width: 100px;
+            }
+            
+            .progress-text {
+                font-size: var(--text-xs);
+                padding: var(--space-1) var(--space-2);
+            }
+
+            .content-wrapper {
+                padding: var(--space-6) var(--space-3);
+            }
+
+            .module-header h1 {
+                font-size: var(--text-2xl);
+            }
+
+            .content-card {
+                padding: var(--space-4);
+            }
+
+            .cta-hero {
+                padding: var(--space-6) var(--space-3);
+            }
+
+            .main-cta-button {
+                font-size: var(--text-base);
+                padding: var(--space-3) var(--space-4);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>FNW Training</h2>
+            </div>
+            <div class="nav-progress">
+                <!-- Circular Progress Ring -->
+                <div class="progress-ring-container">
+                    <svg class="progress-ring">
+                        <defs>
+                            <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <circle class="progress-ring-bg" cx="30" cy="30" r="25"></circle>
+                        <circle class="progress-ring-fill" cx="30" cy="30" r="25" id="progressRingFill"></circle>
+                    </svg>
+                    <div class="progress-ring-text">
+                        <span class="current" id="progressCurrent">1</span>
+                        <span class="total" id="progressTotal">/7</span>
+                    </div>
+                </div>
+
+                <!-- Achievement Badges -->
+                <div class="achievement-badges" id="achievementBadges">
+                    <div class="achievement-badge current" data-module="1" data-tooltip="Módulo 1: Introdução">1</div>
+                    <div class="achievement-badge locked" data-module="2" data-tooltip="Módulo 2: Análise">2</div>
+                    <div class="achievement-badge locked" data-module="3" data-tooltip="Módulo 3: Estratégia">3</div>
+                    <div class="achievement-badge locked" data-module="4" data-tooltip="Módulo 4: Implementação">4</div>
+                    <div class="achievement-badge locked" data-module="5" data-tooltip="Módulo 5: Monitoramento">5</div>
+                    <div class="achievement-badge locked" data-module="6" data-tooltip="Módulo 6: Otimização">6</div>
+                    <div class="achievement-badge locked" data-module="7" data-tooltip="Módulo 7: Conclusão">7</div>
+                </div>
+
+                <!-- Legacy progress bar for mobile -->
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <span class="progress-text" id="progressText">1 / 7</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        <div class="content-wrapper">
+            <!-- Module 1: Reposicionamento Estratégico -->
+            <section class="module active" id="module1">
+                <div class="module-header">
+                    <span class="module-number">01</span>
+                    <h1>Reposicionamento Estratégico</h1>
+                    <p class="module-subtitle">Evitando a extinção de 10.000+ empresas nos próximos 3-5 anos</p>
+                </div>
+
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>🎯 Objetivo Principal</h3>
+                        <p>Reposicionar estrategicamente a FNW e parceiros com foco em clientes próximos que já confiam
+                            e valorizam o trabalho.</p>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>👥 Critérios de Seleção</h3>
+                        <ul>
+                            <li>Gosta de você</li>
+                            <li>Conhece o trabalho</li>
+                            <li>Valoriza o trabalho</li>
+                        </ul>
+                        <div class="highlight-box">
+                            <strong>Meta:</strong> Listar 7 a 21 pessoas inicialmente
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>⚠️ Urgência do Mercado</h3>
+                        <p>Empresas tradicionais enfrentam extinção devido à falta de aplicação de IA nos negócios.</p>
+                        <div class="stat-box">
+                            <span class="stat-number">10,000+</span>
+                            <span class="stat-label">Empresas em risco</span>
+                        </div>
+                    </div>
+
+                    <div class="content-card full-width">
+                        <h3>🎁 Oferta Estratégica</h3>
+                        <p>Diagnóstico gratuito (IA-DNA Scan) para avaliar a situação dos negócios em relação à IA.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Module 2: Avaliação Pré-Abordagem -->
+            <section class="module" id="module2">
+                <div class="module-header">
+                    <span class="module-number">02</span>
+                    <h1>Avaliação Pré-Abordagem (PoC)</h1>
+                    <p class="module-subtitle">Prova de conceito antes da abordagem</p>
+                </div>
+
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>🔍 Análise de Presença Digital</h3>
+                        <ul>
+                            <li>Instagram</li>
+                            <li>Website próprio/hub</li>
+                            <li>Modelo de negócio (atacado/varejo)</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>💬 Avaliação de Atendimento</h3>
+                        <ul>
+                            <li>Uso de WhatsApp</li>
+                            <li>Tipo de atendimento (humano/bot/IA)</li>
+                            <li>Tempo de resposta</li>
+                        </ul>
+                    </div>
+
+                    <div class="methodology-box">
+                        <h3>📊 Metodologia de Teste</h3>
+                        <div class="steps">
+                            <div class="step">
+                                <span class="step-number">1</span>
+                                <p>Simular interação como cliente</p>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">2</span>
+                                <p>Registrar print da conversa</p>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">3</span>
+                                <p>Medir tempo de resposta</p>
+                            </div>
+                        </div>
+                        <div class="alert-box">
+                            <strong>⏰ Regra:</strong> 12+ horas de resposta = perda de cliente
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Module 3: Abordagem e Priorização -->
+            <section class="module" id="module3">
+                <div class="module-header">
+                    <span class="module-number">03</span>
+                    <h1>Abordagem e Priorização</h1>
+                    <p class="module-subtitle">Sempre começar pelo atendimento ao cliente</p>
+                </div>
+
+                <div class="content-grid">
+                    <div class="priority-card">
+                        <h3>🎯 Prioridade #1: Atendimento</h3>
+                        <p>Mesmo que outros processos necessitem otimização, sempre começamos pelo atendimento ao
+                            cliente.</p>
+
+                        <div class="reason-box">
+                            <h4>💰 Por quê?</h4>
+                            <p>Gera fluxo de caixa imediato, essencial para existência e crescimento da empresa.</p>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>📋 Preparação da Abordagem</h3>
+                        <ul>
+                            <li>Insights sobre pontos urgentes</li>
+                            <li>Ferramenta mais urgente identificada</li>
+                            <li>Estratégia personalizada</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Module 4: IA-DNA Scan -->
+            <section class="module" id="module4">
+                <div class="module-header">
+                    <span class="module-number">04</span>
+                    <h1>IA-DNA Scan</h1>
+                    <p class="module-subtitle">Diagnóstico e roteiro para transformação AI-Native</p>
+                </div>
+
+                <div class="content-grid">
+                    <div class="scan-process">
+                        <h3>🔬 Processo do Scan</h3>
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <div class="step-icon">1️⃣</div>
+                                <h4>Coleta de Dados Iniciais</h4>
+                                <ul>
+                                    <li>Setor de atuação</li>
+                                    <li>Faturamento anual</li>
+                                    <li>Principal dor/desafio</li>
+                                    <li>Nível de automação (1-5)</li>
+                                </ul>
+                            </div>
+
+                            <div class="process-step">
+                                <div class="step-icon">2️⃣</div>
+                                <h4>Avaliação AI-Native</h4>
+                                <ul>
+                                    <li>Dependência de mão de obra</li>
+                                    <li>Gargalos operacionais</li>
+                                    <li>Estrutura de processos</li>
+                                    <li>Adoção de tecnologia/SaaS</li>
+                                </ul>
+                            </div>
+
+                            <div class="process-step">
+                                <div class="step-icon">3️⃣</div>
+                                <h4>Cálculo de Risco</h4>
+                                <p>Pontuação 0-100 de risco de extinção por empresas AI full stack</p>
+                            </div>
+
+                            <div class="process-step">
+                                <div class="step-icon">4️⃣</div>
+                                <h4>Roteiro AI-Native</h4>
+                                <p>Plano com 3-5 passos iniciais para transformação</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="danger-indicators">
+                        <h3>⚠️ Sinais de Perigo</h3>
+                        <div class="danger-list">
+                            <div class="danger-item">Processos manuais obsoletos</div>
+                            <div class="danger-item">Decisões baseadas em "achismos"</div>
+                            <div class="danger-item">Custos operacionais insustentáveis</div>
+                            <div class="danger-item">Velocidade de resposta lenta</div>
+                        </div>
+                    </div>
+
+                    <div class="cta-box">
+                        <h4>💬 Chamada Final</h4>
+                        <p>"Você quer ser salvo da extinção com seu negócio?"</p>
+                        <button class="cta-button">Ir para WhatsApp</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Module 5: Proposta de Solução -->
+            <section class="module" id="module5">
+                <div class="module-header">
+                    <span class="module-number">05</span>
+                    <h1>Proposta de Solução</h1>
+                    <p class="module-subtitle">4 etapas de investimento com resultados em 15 dias</p>
+                </div>
+
+                <div class="content-grid">
+                    <div class="solution-promise">
+                        <h3>⚡ Promessa de Resultado</h3>
+                        <div class="promise-items">
+                            <div class="promise-item">
+                                <span class="promise-icon">⏱️</span>
+                                <p>Resultados em até 15 dias</p>
+                            </div>
+                            <div class="promise-item">
+                                <span class="promise-icon">🤖</span>
+                                <p>Atendimento ágil, profissional e humanizado</p>
+                            </div>
+                            <div class="promise-item">
+                                <span class="promise-icon">💰</span>
+                                <p>Foco em geração de fluxo de caixa</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="investment-stages">
+                        <h3>📊 4 Etapas do Investimento</h3>
+
+                        <div class="stage">
+                            <div class="stage-number">1</div>
+                            <div class="stage-content">
+                                <h4>Configuração Comportamental</h4>
+                                <p>Implementação do perfil de conversa da IA conforme estilo do cliente</p>
+                                <span class="stage-cost">Valor diluído na anuidade</span>
+                            </div>
+                        </div>
+
+                        <div class="stage">
+                            <div class="stage-number">2</div>
+                            <div class="stage-content">
+                                <h4>Ativação no WhatsApp</h4>
+                                <p>Atendimento 24h inteligente e humanizado + treinamento via documentação</p>
+                                <span class="stage-feature">Incluído na anuidade</span>
+                            </div>
+                        </div>
+
+                        <div class="stage">
+                            <div class="stage-number">3</div>
+                            <div class="stage-content">
+                                <h4>Atualização Periódica</h4>
+                                <p>Ciclos estratégicos: 1º mês (ciclos curtos), depois a cada 15-21 dias</p>
+                                <span class="stage-feature">Acompanhamento contínuo</span>
+                            </div>
+                        </div>
+
+                        <div class="stage">
+                            <div class="stage-number">4</div>
+                            <div class="stage-content">
+                                <h4>Anuidade Acessível</h4>
+                                <p>Custo flexível conforme orçamento e fluxo de caixa</p>
+                                <span class="stage-cost">R$ 4.800/mês (parcela da anuidade)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="urgency-box">
+                        <h3>🚨 Urgência da Oferta</h3>
+                        <p>Condição especial válida até:</p>
+                        <div class="urgency-conditions">
+                            <div class="condition">📅 31 de Agosto</div>
+                            <div class="condition-or">OU</div>
+                            <div class="condition">👥 21 primeiras vagas</div>
+                        </div>
+                        <p class="urgency-note">O que acontecer primeiro</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Module 6: Papel da FNW e Parceiro -->
+            <section class="module" id="module6">
+                <div class="module-header">
+                    <span class="module-number">06</span>
+                    <h1>Papel da FNW e Parceiro</h1>
+                    <p class="module-subtitle">Estrutura de parceria e implementação</p>
+                </div>
+
+                <div class="content-grid">
+                    <div class="roles-grid">
+                        <div class="role-card fnw-role">
+                            <h3>🏢 FNW</h3>
+                            <ul>
+                                <li>Mecanismo por trás do parceiro</li>
+                                <li>Fornece tecnologia</li>
+                                <li>Fornece metodologia</li>
+                                <li>Fornece desenvolvimento</li>
+                                <li>Transfere templates</li>
+                            </ul>
+                        </div>
+
+                        <div class="role-card partner-role">
+                            <h3>🤝 Parceiro</h3>
+                            <ul>
+                                <li>Se reposiciona no mercado</li>
+                                <li>Mantém relacionamento comercial</li>
+                                <li>Contato direto com cliente</li>
+                                <li>Executa a venda</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="setup-requirements">
+                        <h3>⚙️ Requisitos para Iniciar</h3>
+                        <div class="requirements-list">
+                            <div class="requirement">
+                                <span class="req-icon">📧</span>
+                                <p>Conta Gmail com nome da empresa de assessoria</p>
+                            </div>
+                            <div class="requirement">
+                                <span class="req-icon">🔧</span>
+                                <p>Conta no System.IO (páginas e funis de venda)</p>
+                            </div>
+                            <div class="requirement">
+                                <span class="req-icon">🌐</span>
+                                <p>Comprar domínios .com e .com.br</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="final-goal">
+                        <h3>🎯 Objetivo Final</h3>
+                        <p>Carrinho de checkout automatizado para venda automática após acesso à página</p>
+
+                        <div class="automation-flow">
+                            <div class="flow-step">Cliente acessa página</div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-step">Realiza diagnóstico</div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-step">Venda automática</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Module 7: Comece Agora -->
+            <section class="module" id="module7">
+                <div class="module-header">
+                    <span class="module-number">07</span>
+                    <h1>Comece Agora</h1>
+                    <p class="module-subtitle">Não deixe seu negócio ser extinto pela revolução da IA</p>
+                </div>
+
+                <div class="content-grid">
+                    <div class="final-cta-section">
+                        <div class="cta-hero">
+                            <h2>🚨 Sua Empresa Está Preparada para Sobreviver?</h2>
+                            <p class="cta-description">
+                                Mais de 10.000 empresas podem ser extintas nos próximos 3-5 anos por não adotarem IA.
+                                Descubra agora o nível de risco do seu negócio com nosso diagnóstico gratuito.
+                            </p>
+                        </div>
+
+                        <div class="scan-benefits">
+                            <h3>✅ O que você receberá no IA-DNA Scan:</h3>
+                            <div class="benefits-grid">
+                                <div class="benefit-item">
+                                    <span class="benefit-icon">🎯</span>
+                                    <p>Análise completa do risco de extinção</p>
+                                </div>
+                                <div class="benefit-item">
+                                    <span class="benefit-icon">📊</span>
+                                    <p>Pontuação de preparação AI-Native</p>
+                                </div>
+                                <div class="benefit-item">
+                                    <span class="benefit-icon">🗺️</span>
+                                    <p>Roteiro personalizado de transformação</p>
+                                </div>
+                                <div class="benefit-item">
+                                    <span class="benefit-icon">⚡</span>
+                                    <p>Identificação de gargalos urgentes</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="urgency-reminder">
+                            <h3>⏰ Oferta Limitada</h3>
+                            <p>Diagnóstico gratuito válido apenas para:</p>
+                            <div class="urgency-conditions">
+                                <div class="condition">📅 Até 31 de Agosto</div>
+                                <div class="condition-or">OU</div>
+                                <div class="condition">👥 21 Primeiras Vagas</div>
+                            </div>
+                            <p class="urgency-note">O que acontecer primeiro</p>
+                        </div>
+
+                        <div class="cta-action">
+                            <h3>🎁 Diagnóstico 100% Gratuito</h3>
+                            <p>Não perca tempo. Sua concorrência já pode estar se preparando.</p>
+                            <a href="https://freenatwork-21.systeme.io/ia-dna-scan" target="_blank"
+                                class="main-cta-button">
+                                🔍 FAZER IA-DNA SCAN GRATUITO
+                            </a>
+                            <p class="cta-guarantee">✓ Sem compromisso • ✓ Resultado imediato • ✓ Totalmente gratuito
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="navigation">
+            <button class="nav-btn" id="prevBtn" disabled>← Anterior</button>
+            <div class="page-indicator">
+                <span class="page-dots">
+                    <span class="dot active" data-page="1"></span>
+                    <span class="dot" data-page="2"></span>
+                    <span class="dot" data-page="3"></span>
+                    <span class="dot" data-page="4"></span>
+                    <span class="dot" data-page="5"></span>
+                    <span class="dot" data-page="6"></span>
+                    <span class="dot" data-page="7"></span>
+                </span>
+            </div>
+            <button class="nav-btn" id="nextBtn">Próximo →</button>
+        </div>
+    </main>
+
+    <script>
+        class TrainingManager {
+            constructor() {
+                this.currentModule = 1;
+                this.totalModules = 7;
+                this.init();
+            }
+
+            init() {
+                this.bindEvents();
+                this.updateProgress();
+                this.showModule(1);
+            }
+
+            bindEvents() {
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
+
+                prevBtn.addEventListener('click', () => this.previousModule());
+                nextBtn.addEventListener('click', () => this.nextModule());
+
+                // Page indicator dots
+                document.querySelectorAll('.dot').forEach(dot => {
+                    dot.addEventListener('click', (e) => {
+                        const pageNum = parseInt(e.target.dataset.page);
+                        this.showModule(pageNum);
+                    });
+                });
+
+                // Achievement badge click handlers
+                document.querySelectorAll('.achievement-badge').forEach(badge => {
+                    badge.addEventListener('click', (e) => {
+                        const moduleNum = parseInt(e.target.dataset.module);
+                        // Only allow navigation to current or completed modules
+                        if (moduleNum <= this.currentModule) {
+                            this.showModule(moduleNum);
+                        }
+                    });
+                });
+
+                // Keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft' && this.currentModule > 1) {
+                        this.previousModule();
+                    } else if (e.key === 'ArrowRight' && this.currentModule < this.totalModules) {
+                        this.nextModule();
+                    }
+                });
+
+                // CTA button functionality
+                const ctaButton = document.querySelector('.cta-button');
+                if (ctaButton) {
+                    ctaButton.addEventListener('click', () => {
+                        const message = encodeURIComponent('Olá! Gostaria de saber mais sobre o diagnóstico gratuito IA-DNA Scan para evitar a extinção do meu negócio.');
+                        window.open(`https://wa.me/5500000000000?text=${message}`, '_blank');
+                    });
+                }
+            }
+
+            showModule(moduleNumber) {
+                // Check if this is a progression (not going backwards)
+                const isProgression = moduleNumber > this.currentModule;
+                
+                // Hide all modules
+                document.querySelectorAll('.module').forEach(module => {
+                    module.classList.remove('active');
+                });
+
+                // Update page indicator dots
+                document.querySelectorAll('.dot').forEach(dot => {
+                    dot.classList.remove('active');
+                });
+                document.querySelector(`.dot[data-page="${moduleNumber}"]`).classList.add('active');
+
+                // Show current module with animation
+                setTimeout(() => {
+                    const currentModuleElement = document.getElementById(`module${moduleNumber}`);
+                    if (currentModuleElement) {
+                        currentModuleElement.classList.add('active');
+
+                        // Animate cards
+                        const cards = currentModuleElement.querySelectorAll('.content-card, .priority-card, .scan-process, .solution-promise, .investment-stages, .urgency-box, .roles-grid > .role-card, .setup-requirements, .final-goal');
+                        cards.forEach((card, index) => {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(30px)';
+                            setTimeout(() => {
+                                card.style.transition = 'all 0.6s ease';
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 100 * index);
+                        });
+                    }
+                }, 100);
+
+                // Trigger celebration if progressing to a new module
+                if (isProgression && this.currentModule > 0) {
+                    setTimeout(() => {
+                        this.triggerCelebration();
+                    }, 500);
+                }
+
+                this.currentModule = moduleNumber;
+                this.updateProgress();
+                this.updateNavigationButtons();
+
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                // Update URL without page reload
+                history.pushState({ module: moduleNumber }, '', `#module${moduleNumber}`);
+            }
+
+            nextModule() {
+                if (this.currentModule < this.totalModules) {
+                    this.showModule(this.currentModule + 1);
+                }
+            }
+
+            previousModule() {
+                if (this.currentModule > 1) {
+                    this.showModule(this.currentModule - 1);
+                }
+            }
+
+            updateProgress() {
+                // Update legacy progress bar
+                const progressFill = document.getElementById('progressFill');
+                const progressText = document.getElementById('progressText');
+                
+                if (progressFill && progressText) {
+                    const progressPercentage = (this.currentModule / this.totalModules) * 100;
+                    progressFill.style.width = `${progressPercentage}%`;
+                    progressText.textContent = `${this.currentModule} / ${this.totalModules}`;
+                }
+
+                // Update circular progress ring
+                this.updateCircularProgress();
+                
+                // Update achievement badges
+                this.updateAchievementBadges();
+            }
+
+            updateCircularProgress() {
+                const progressRing = document.getElementById('progressRingFill');
+                const progressCurrent = document.getElementById('progressCurrent');
+                const progressTotal = document.getElementById('progressTotal');
+                
+                if (progressRing && progressCurrent && progressTotal) {
+                    const circumference = 2 * Math.PI * 25; // radius = 25
+                    const progressPercentage = (this.currentModule / this.totalModules);
+                    const offset = circumference - (progressPercentage * circumference);
+                    
+                    progressRing.style.strokeDashoffset = offset;
+                    progressCurrent.textContent = this.currentModule;
+                    progressTotal.textContent = `/${this.totalModules}`;
+                }
+            }
+
+            updateAchievementBadges() {
+                const badges = document.querySelectorAll('.achievement-badge');
+                
+                badges.forEach((badge, index) => {
+                    const moduleNumber = index + 1;
+                    badge.classList.remove('locked', 'completed', 'current');
+                    
+                    if (moduleNumber < this.currentModule) {
+                        badge.classList.add('completed');
+                    } else if (moduleNumber === this.currentModule) {
+                        badge.classList.add('current');
+                    } else {
+                        badge.classList.add('locked');
+                    }
+                });
+            }
+
+            triggerCelebration() {
+                // Create celebration overlay
+                const overlay = document.createElement('div');
+                overlay.className = 'celebration-overlay';
+                document.body.appendChild(overlay);
+
+                // Create confetti pieces
+                for (let i = 0; i < 50; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti-piece';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                    confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    overlay.appendChild(confetti);
+                }
+
+                // Add celebration bounce to current module badge
+                const currentBadge = document.querySelector('.achievement-badge.current');
+                if (currentBadge) {
+                    currentBadge.style.animation = 'celebrationBounce 0.6s ease-out';
+                    setTimeout(() => {
+                        currentBadge.style.animation = '';
+                    }, 600);
+                }
+
+                // Remove overlay after animation
+                setTimeout(() => {
+                    overlay.remove();
+                }, 3000);
+            }
+
+            updateNavigationButtons() {
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
+
+                prevBtn.disabled = this.currentModule === 1;
+                nextBtn.disabled = this.currentModule === this.totalModules;
+
+                if (this.currentModule === this.totalModules) {
+                    nextBtn.textContent = 'Concluído ✓';
+                } else {
+                    nextBtn.textContent = 'Próximo →';
+                }
+            }
+        }
+
+        // Initialize training when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new TrainingManager();
+
+            // Handle browser back/forward
+            window.addEventListener('popstate', (e) => {
+                if (e.state && e.state.module) {
+                    const training = new TrainingManager();
+                    training.showModule(e.state.module);
+                }
+            });
+
+            // Check for initial hash in URL
+            const hash = window.location.hash;
+            if (hash && hash.startsWith('#module')) {
+                const moduleNum = parseInt(hash.replace('#module', ''));
+                if (moduleNum >= 1 && moduleNum <= 7) {
+                    setTimeout(() => {
+                        const training = new TrainingManager();
+                        training.showModule(moduleNum);
+                    }, 100);
+                }
+            }
+
+            // Enhanced hover effects with micro-animations
+            document.querySelectorAll('.content-card, .stage, .requirement').forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                    this.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
+
+                    // Animate internal elements
+                    const title = this.querySelector('h3, h4');
+                    if (title) {
+                        title.style.transform = 'translateX(4px)';
+                        title.style.transition = 'transform 0.3s ease';
+                    }
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateY(0) scale(1)';
+                    this.style.boxShadow = '';
+
+                    const title = this.querySelector('h3, h4');
+                    if (title) {
+                        title.style.transform = 'translateX(0)';
+                    }
+                });
+            });
+
+            // Enhanced button animations with ripple effect
+            document.querySelectorAll('.nav-btn, .cta-button, .main-cta-button').forEach(btn => {
+                btn.addEventListener('click', function (e) {
+                    // Scale animation
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+
+                    // Ripple effect
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+
+                    ripple.style.cssText = `
+                        position: absolute;
+                        width: ${size}px;
+                        height: ${size}px;
+                        left: ${x}px;
+                        top: ${y}px;
+                        background: rgba(255, 255, 255, 0.3);
+                        border-radius: 50%;
+                        transform: scale(0);
+                        animation: ripple 0.6s ease-out;
+                        pointer-events: none;
+                    `;
+
+                    this.style.position = 'relative';
+                    this.style.overflow = 'hidden';
+                    this.appendChild(ripple);
+
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+
+            // Add ripple animation keyframes
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes ripple {
+                    to {
+                        transform: scale(2);
+                        opacity: 0;
+                    }
+                }
+                
+                @keyframes fadeInUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(30px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+                
+                @keyframes pulse {
+                    0%, 100% {
+                        transform: scale(1);
+                    }
+                    50% {
+                        transform: scale(1.05);
+                    }
+                }
+                
+                .animate-pulse {
+                    animation: pulse 2s infinite;
+                }
+                
+                .animate-fadeInUp {
+                    animation: fadeInUp 0.6s ease-out;
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Progress animation on load
+            setTimeout(() => {
+                const progressFill = document.getElementById('progressFill');
+                if (progressFill) {
+                    progressFill.style.width = '14.28%';
+                }
+                
+                // Initialize circular progress
+                const training = new TrainingManager();
+                training.updateCircularProgress();
+            }, 500);
+
+            // Animated counter for statistics
+            function animateCounter(element, target, duration = 2000) {
+                const start = 0;
+                const increment = target / (duration / 16);
+                let current = start;
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+
+                    if (target >= 1000) {
+                        element.textContent = Math.floor(current / 1000) + ',000+';
+                    } else {
+                        element.textContent = Math.floor(current);
+                    }
+                }, 16);
+            }
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const element = entry.target;
+
+                        // Animate stat numbers
+                        if (element.classList.contains('stat-number')) {
+                            const text = element.textContent;
+                            if (text.includes('10,000+')) {
+                                animateCounter(element, 10000);
+                            }
+                        }
+
+                        // Add fade in animation
+                        element.classList.add('animate-fadeInUp');
+
+                        // Add pulse animation to important elements
+                        if (element.classList.contains('module-number') ||
+                            element.classList.contains('cta-button') ||
+                            element.classList.contains('main-cta-button')) {
+                            setTimeout(() => {
+                                element.classList.add('animate-pulse');
+                            }, 1000);
+                        }
+
+                        observer.unobserve(element);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for animation
+            document.querySelectorAll('.content-card, .stat-number, .module-number, .cta-button, .main-cta-button').forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+        // Smooth scrolling for any internal links
+        document.addEventListener('click', function (e) {
+            if (e.target.tagName === 'A' && e.target.getAttribute('href').startsWith('#')) {
+                e.preventDefault();
+                const targetId = e.target.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
